@@ -1,8 +1,5 @@
 class ArticlesController < ApplicationController
   def index
-    result = {
-      articles: []
-    }
-    render json: result
+    @articles = Article.all
   end
 end

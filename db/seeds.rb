@@ -5,3 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Author.create(username: "thuytran", bio: "this is me", image: "https://static.productionready.io/images/smiley-cyrus.jpg")
+
+taglist = []
+
+Article.create title: "title 1", slug: "slug", body: "Just testing", tag_list: taglist, description: "description", author: Author.username
+Article.create title: "title 1", slug: "slug", body: "Just testing", tag_list: taglist, description: "description", author: Author.username
+Article.create title: "title 1", slug: "slug", body: "Just testing", tag_list: taglist, description: "description", author: Author.username
+Article.create title: "title 1", slug: "slug", body: "Just testing", tag_list: taglist, description: "description", author: Author.username
+
+
+

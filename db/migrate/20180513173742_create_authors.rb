@@ -6,7 +6,7 @@ class CreateAuthors < ActiveRecord::Migration
       t.string :image
       t.boolean :following, default: false
 
-      t.timestamps null: false
+      #t.timestamps null: false
     end
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180514024225) do
+ActiveRecord::Schema.define(version: 20180515163958) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title",           limit: 255
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 20180514024225) do
     t.integer  "author_id",       limit: 4
   end
 
+  add_index "articles", ["author_id"], name: "fk_rails_e74ce85cbc", using: :btree
+
   create_table "authors", force: :cascade do |t|
     t.string   "username",    limit: 255
     t.string   "bio",         limit: 255
@@ -38,4 +40,5 @@ ActiveRecord::Schema.define(version: 20180514024225) do
     t.integer  "username_id", limit: 4
   end
 
+  add_foreign_key "articles", "authors"
 end

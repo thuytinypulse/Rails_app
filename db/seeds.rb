@@ -6,14 +6,13 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-author = Author.create(username: "thuytran", bio: "this is me", image: "https://static.productionready.io/images/smiley-cyrus.jpg")
+author = Author.create(username: "thuytran", bio: "1st testing", image: "https://static.productionready.io/images/smiley-cyrus.jpg")
+author = Author.create(username: "thuytran", bio: "2nd testing", image: "https://static.productionready.io/images/smiley-cyrus.jpg")
+author = Author.create(username: "thuytran", bio: "3rd testing", image: "https://static.productionready.io/images/smiley-cyrus.jpg")
 
-taglist = []
-
-Article.create title: "title 1", slug: "slug", body: "Just testing", tag_list: taglist, description: "description", author: author
-Article.create title: "title 1", slug: "slug", body: "Just testing", tag_list: taglist, description: "description", author: author
-Article.create title: "title 1", slug: "slug", body: "Just testing", tag_list: taglist, description: "description", author: author
-Article.create title: "title 1", slug: "slug", body: "Just testing", tag_list: taglist, description: "description", author: author
-
+ Article.create title: "title 1", slug: "slug", body: "Just testing", description: "description", author_id: Author.first.id
+ Article.create title: "title 1", slug: "slug", body: "Just testing", description: "description", author_id: Author.first.id
+ Article.create title: "title 1", slug: "slug", body: "Just testing", description: "description", author_id: Author.last.id
+ Article.create title: "title 1", slug: "slug", body: "Just testing", description: "description", author_id: Author.last.id
 
 

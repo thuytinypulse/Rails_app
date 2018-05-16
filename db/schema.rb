@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180515163958) do
+ActiveRecord::Schema.define(version: 20180515174139) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title",           limit: 255
@@ -19,26 +19,22 @@ ActiveRecord::Schema.define(version: 20180515163958) do
     t.text     "body",            limit: 65535
     t.string   "description",     limit: 255
     t.text     "tag_list",        limit: 65535
-    t.string   "username",        limit: 255
+    t.string   "author",          limit: 255
     t.boolean  "favorited",                     default: false
     t.integer  "favorites_count", limit: 4,     default: 0
     t.datetime "created_at",                                    null: false
     t.datetime "updated_at",                                    null: false
-    t.integer  "username_id",     limit: 4
-    t.integer  "author_id",       limit: 4
+    t.integer  "user_id",         limit: 4
   end
 
-  add_index "articles", ["author_id"], name: "fk_rails_e74ce85cbc", using: :btree
+  add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
 
-  create_table "authors", force: :cascade do |t|
-    t.string   "username",    limit: 255
-    t.string   "bio",         limit: 255
-    t.string   "image",       limit: 255
-    t.boolean  "following",               default: false
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
-    t.integer  "username_id", limit: 4
+  create_table "users", force: :cascade do |t|
+    t.string  "username",  limit: 255
+    t.string  "bio",       limit: 255
+    t.string  "image",     limit: 255
+    t.boolean "following",             default: false
   end
 
-  add_foreign_key "articles", "authors"
+  add_foreign_key "articles", "users"
 end
